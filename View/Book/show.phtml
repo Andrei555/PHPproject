@@ -1,0 +1,12 @@
+<h1 class="text-center"><?=$book['title']?></h1>
+<hr>
+
+<div class="text-center mb-5" style="border: 1px solid blue; width: 800px; margin-left: 280px;">
+    <img class="my-2" src="/webroot/img/fon_1.jpg" width="400px" height="600px">
+
+
+    <h3><?=$book['title']?></h3>
+    <p><?=$book['price']?></p>
+    <p><?=$book['description']?></p>
+    <a href="/cart/add/<?=$book['id']?>" class="btn btn-primary mb-5" role="button">To cart</a>
+</div>
