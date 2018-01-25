@@ -20,14 +20,4 @@ return array(
     'admin_books' => new Route('/admin/books', 'Admin\\Book', 'index'),
     'admin_book_edit' => new Route('/admin/books/edit/{id}', 'Admin\\Book', 'edit', array('id' => '[0-9]+')),
     'admin_book_pdf_export' => new Route('/admin/books/export', 'Admin\\Book', 'exportPdf'),
-
-    // api. TODO: add methods
-    'api_save_feedback' => new Route('/api/feedback', 'API\\Site', 'save'),
-    //'api_add_to_cart' => new Route('/api/cart/add/{id}', 'API\\Cart', 'add'),
-    //'api_add_to_cart' => new Route('/api/cart/add/{id}', 'API\\Cart', 'add'),
-    'api_books_list' => new Route('/api/books', 'API\\Book', 'index'),
-    'api_books_item' => new Route('/api/books/{id}', 'API\\Book', 'item', array('id' => '[0-9]+')),
-    'api_books_create' => new Route('/api/books', 'API\\Book', 'create'),
-    'api_books_update' => new Route('/api/books/{id}', 'API\\Book', 'update', array('id' => '[0-9]+')),
-    'api_books_delete' => new Route('/api/books/{id}', 'API\\Book', 'delete', array('id' => '[0-9]+'))
 );

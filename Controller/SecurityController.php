@@ -6,7 +6,8 @@ use Library\Controller;
 use Library\Request;
 use Library\Session;
 use Library\Password;
-use Model\Form\LoginForm;
+use Model\LoginForm;
+use Model\RegistrationForm;
 
 class SecurityController extends Controller
 {
@@ -44,6 +45,29 @@ class SecurityController extends Controller
 
     public function registerAction(Request $request)
     {
+        $form = new RegistrationForm($request);
 
+        if ($request->isPost()) {
+            if ($form->isValid()) {
+
+                // TODO: проверять, существует ли в базе уже юзер с таким имейлом
+                // $model = new UserModel();
+                // $model->check()
+                $repo = $this->container->get('repository_manager')->getRepository('User');
+                $repo->save(array(
+                    'email' => $form->email,
+                    'password' => new Password($form->password)
+                ));
+
+                Session::setFlash('Registered');
+                $this->container->get('router')->redirect('/register');
+            }
+
+            Session::setFlash($form->getNotice());
+        }
+
+        $args = compact('form');
+
+        return $this->render('register.phtml', $args);
     }
 }

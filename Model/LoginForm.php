@@ -1,6 +1,6 @@
 <?php
 
-namespace Model\Form;
+namespace Model;
 
 use Library\Request;
 

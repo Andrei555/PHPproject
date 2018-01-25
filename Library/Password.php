@@ -2,9 +2,10 @@
 
 namespace Library;
 
+
 class Password
 {
-    const SALT_TEXT = 'Yes, Mr White! Yes, science!';
+    const SALT_TEXT = 'Welcome to my site!';
 
     private $password;
     private $hashedPassword;
