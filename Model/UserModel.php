@@ -20,4 +20,12 @@ class UserModel extends EntityRepository
         $sth = $this->pdo->prepare('INSERT INTO user (email, password) VALUES (:email, :password)');
         $sth->execute($user);
     }
+
+    public function checkExistUser($email)
+    {
+        $sth = $this->pdo->query("SELECT email FROM user WHERE email = '{$email}' LIMIT 1");
+        $res = $sth->fetchAll(\PDO::FETCH_ASSOC);
+
+        return $res;
+    }
 }

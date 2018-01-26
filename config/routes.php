@@ -19,5 +19,7 @@ return array(
     'admin_default' => new Route('/admin', 'Admin\\Default', 'index'),
     'admin_books' => new Route('/admin/books', 'Admin\\Book', 'index'),
     'admin_book_edit' => new Route('/admin/books/edit/{id}', 'Admin\\Book', 'edit', array('id' => '[0-9]+')),
+    'admin_book_remove' => new Route('/admin/books/remove/{id}', 'Admin\\Book', 'remove', array('id' => '[0-9]+')),
+    'admin_add' => new Route('/admin/add', 'Admin\\Book', 'add'),
     'admin_book_pdf_export' => new Route('/admin/books/export', 'Admin\\Book', 'exportPdf'),
 );

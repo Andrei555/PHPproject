@@ -12,6 +12,7 @@ class RegistrationForm
     public $email;
     public $password;
     public $repeatPassword;
+    public $status = 1;
 
     private $notice;
 
@@ -20,6 +21,7 @@ class RegistrationForm
         $this->email = $request->post('email');
         $this->password = $request->post('password');
         $this->repeatPassword = $request->post('repeat_password');
+        $this->status = 1;
     }
 
     /**
