@@ -7,6 +7,20 @@
 </head>
 <body>
 <h1 class="text-center">Books list</h1>
+
+<nav aria-label="Page navigation example" style="padding-left: 370px">
+    <ul class="pagination my-5">
+        <?php foreach ($pagination->buttons as $button) :
+            if ($button->isActive) : ?>
+                <li class="page-item"><a class="page-link" href="?page=<?=$button->page?>"><?=$button->text?></a></li>
+
+            <?php else : ?>
+                <li class="page-item disabled"><a class="page-link" style="background-color: dodgerblue; color: #fff;" href="#"><?=$button->text?></a></li>
+            <?php endif;
+        endforeach; ?>
+    </ul>
+</nav>
+
 <hr>
 
 <div class="container-fluid text-center">
@@ -27,6 +41,20 @@
         <?php endforeach; ?>
     </div>
 </div>
+
+<nav aria-label="Page navigation example" style="padding-left: 370px">
+    <ul class="pagination my-5">
+        <?php foreach ($pagination->buttons as $button) :
+            if ($button->isActive) : ?>
+                <li class="page-item"><a class="page-link" href="?page=<?=$button->page?>"><?=$button->text?></a></li>
+
+            <?php else : ?>
+                <li class="page-item disabled"><a class="page-link" style="background-color: dodgerblue; color: #fff;" href="#"><?=$button->text?></a></li>
+            <?php endif;
+        endforeach; ?>
+    </ul>
+</nav>
+
 
 </body>
 </html>

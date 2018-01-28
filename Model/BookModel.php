@@ -6,6 +6,17 @@ use Library\EntityRepository;
 
 class BookModel extends EntityRepository
 {
+    public function findActiveByPage($page, $perPage)
+    {
+        $offset = ($page - 1) * $perPage;
+        $sql = "SELECT * FROM book ORDER BY id LIMIT {$offset}, {$perPage}";
+        $sth = $this->pdo->query($sql);
+        $sth->execute();
+        $books = $sth->fetchall(\PDO::FETCH_ASSOC);
+
+        return $books;
+    }
+
 
     public function findAll()
     {
@@ -79,5 +90,11 @@ class BookModel extends EntityRepository
         $sth->execute($ids);
 
         return $sth->fetchAll(\PDO::FETCH_ASSOC);
+    }
+    public function count()
+    {
+        $sql = 'SELECT count(*) FROM book';
+        $sth = $this->pdo->query($sql);
+        return (int)$sth->fetchColumn();
     }
 }

@@ -12,7 +12,7 @@ class DefaultController extends Controller
         if (Session::get('user') < 2) {
             $this->container->get('router')->redirect('/login');
         }
-        
+
         return $this->render('index.phtml');
     }
 }
