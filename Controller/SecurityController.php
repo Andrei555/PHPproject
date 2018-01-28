@@ -25,7 +25,8 @@ class SecurityController extends Controller
                 } else {
                     $repo->save(array(
                         'email' => $form->email,
-                        'password' => new Password($form->password)
+                        'password' => new Password($form->password),
+                        'status' => $form->status
                     ));
 
                     Session::setFlash('Registration successfully!');
@@ -53,17 +54,25 @@ class SecurityController extends Controller
                 $email = $form->email;
 
                 if ($user = $repo->find($email, $password)) {
-                    Session::set('user', $user['email']);
 
-                    Session::setFlash('Signed in');
-                    $this->container->get('router')->redirect('/registration');
+                    if($user['status'] == 2){
+
+                        Session::set('user', $user['status']);
+                        Session::setFlash('Signed in!');
+                        $this->container->get('router')->redirect('/admin');
+                    }
+                        Session::set('user', $user['email']);
+                        Session::setFlash('Signed in!');
+                        $this->container->get('router')->redirect('/registration');
+
+
                 }
 
-                Session::setFlash('User not found');
+                Session::setFlash('User not found!');
                 $this->container->get('router')->redirect('/login');
             }
 
-            Session::setFlash('Fill the fields');
+            Session::setFlash('Fill the fields!');
         }
 
         return $this->render('login.phtml', compact('form'));

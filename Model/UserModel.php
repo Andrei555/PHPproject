@@ -10,14 +10,13 @@ class UserModel extends EntityRepository
     {
         $sth = $this->pdo->prepare('SELECT * FROM user WHERE email = :email AND password = :password LIMIT 1');
         $sth->execute(compact('email', 'password'));
-        return $sth->fetch(\PDO::FETCH_ASSOC);
+        $user = $sth->fetch(\PDO::FETCH_ASSOC);
+        return $user;
     }
 
     public function save(array $user)
     {
-        // TODO: проверить, чтобы в массиве $user были ключи как поля в таблице. Иначе - исключение
-
-        $sth = $this->pdo->prepare('INSERT INTO user (email, password) VALUES (:email, :password)');
+        $sth = $this->pdo->prepare('INSERT INTO user (email, password, status) VALUES (:email, :password, :status)');
         $sth->execute($user);
     }
 

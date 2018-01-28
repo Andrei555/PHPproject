@@ -6,13 +6,13 @@ use Library\Request;
 
 class RegistrationForm
 {
-    const PASS_FAIL = 'Passwords don\'t match';
-    const BLANK_FIELDS = 'Fill the fields';
+    const PASS_FAIL = 'Passwords don\'t match!';
+    const BLANK_FIELDS = 'Fill the fields!';
 
     public $email;
     public $password;
     public $repeatPassword;
-    public $status = 1;
+    public $status;
 
     private $notice;
 

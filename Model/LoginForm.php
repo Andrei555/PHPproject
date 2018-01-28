@@ -13,6 +13,7 @@ class LoginForm
     {
         $this->email = $request->post('email');
         $this->password = $request->post('password');
+
     }
 
     public function isValid()
