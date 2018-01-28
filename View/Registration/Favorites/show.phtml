@@ -1,0 +1,24 @@
+<h1 class="text-center my-4">Selected books</h1>
+
+<div class="text-center">
+    <h4><a href="/registration/favorites/clear" class="badge badge-danger px-5 py-3 mb-4">Clear favorites</a></h4>
+</div>
+
+<div class="container-fluid text-center">
+    <div class="row">
+        <?php foreach ($books as $book) : ?>
+            <div class="col-md-3 my-1 mx-5" style="border: 1px solid blue;">
+                <img src="/webroot/img/fon_1.jpg" style="width: 200px; height: 250px;">
+                <div class="caption">
+                    <h5><b><?=$book['title']?></b></h5>
+                    <p class="m-0">author: <?=$book['author']?></p>
+                    <p class="m-0">genre: <?=$book['genre']?></p>
+                    <h5><a href="/registration/favorites/remove/<?=$book['id']?>" class="badge badge-warning my-2 px-4 py-2 text-primary">Delete</a></h5>
+                </div>
+            </div>
+
+        <?php endforeach; ?>
+    </div>
+</div>
+
+

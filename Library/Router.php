@@ -26,9 +26,18 @@ class Router
         return strpos($uri, '/admin') === 0;
     }
 
+    private function isRegistrationUri($uri)
+    {
+        return strpos($uri, '/registration') === 0;
+    }
+
     public function match(Request $request)
     {
         $uri = $request->getUri();
+
+        if ($this->isRegistrationUri($uri)) {
+            Controller::setRegisteredLayout();
+        }
 
         if ($this->isAdminUri($uri)) {
             Controller::setAdminLayout();

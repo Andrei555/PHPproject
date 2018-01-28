@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>MVC</title>
+    <title>MVC registration</title>
     <link href="/webroot/css/bootstrap.css" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-success sticky-top">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
             aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -15,16 +15,16 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a href="/" class="nav-link text-white">Home</a>
+                <a href="/registration" class="nav-link text-white">Home</a>
             </li>
             <li class="nav-item">
-                <a href="/books" class="nav-link text-white">Books</a>
+                <a href="/registration/books" class="nav-link text-white">Books</a>
             </li>
             <li class="nav-item">
-                <a href="/register" class="nav-link text-white">Registration</a>
+                <a href="/registration/favorites" class="nav-link text-white">Favorites</a>
             </li>
             <li class="nav-item">
-                <a href="/login" class="nav-link text-white">Login</a>
+                <a href="/logout" class="nav-link text-white">Logout</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -36,6 +36,6 @@
 <b><?=\Library\Session::getFlash()?></b>
 
 <?=$content?>
-<!--<footer id="footer" class="container-fluid bg-primary pl-4 py-3 text-white fixed-bottom">callback: andrey1988@gmail.com</footer>-->
+
 </body>
 </html>

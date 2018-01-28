@@ -25,13 +25,4 @@ class BookForm
             $this->author !== '' &&
             $this->genre !== '';
     }
-
-//    public function setFromArray(array $book)
-//    {
-//        $this->title = $book['title'];
-//        $this->author = $book['author'];
-//        $this->genre = $book['genre'];
-//        $this->description = $book['description'];
-//        $this->price = $book['price'];
-//    }
 }

@@ -59,4 +59,25 @@ class BookModel extends EntityRepository
 
         return $book;
     }
+
+    public function findByIdArray(array $ids)
+    {
+        if (!$ids) {
+            return array();
+        }
+
+        $params = array();
+
+        foreach ($ids as $v) {
+            $params[] = '?';
+        }
+
+        $params = implode(',', $params);
+
+
+        $sth = $this->pdo->prepare("SELECT * FROM book WHERE id IN ({$params}) ORDER BY title");
+        $sth->execute($ids);
+
+        return $sth->fetchAll(\PDO::FETCH_ASSOC);
+    }
 }

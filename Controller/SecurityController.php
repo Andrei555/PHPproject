@@ -28,7 +28,7 @@ class SecurityController extends Controller
                         'password' => new Password($form->password)
                     ));
 
-                    Session::setFlash('Registered successfully!');
+                    Session::setFlash('Registration successfully!');
                     $this->container->get('router')->redirect('/register');
                 }
             }
@@ -56,7 +56,7 @@ class SecurityController extends Controller
                     Session::set('user', $user['email']);
 
                     Session::setFlash('Signed in');
-                    $this->container->get('router')->redirect('/admin');
+                    $this->container->get('router')->redirect('/registration');
                 }
 
                 Session::setFlash('User not found');

@@ -17,6 +17,11 @@ abstract class Controller
         return $this;
     }
 
+    public static function setRegisteredLayout()
+    {
+        self::$layout = 'registration_layout.phtml';
+    }
+
     public static function setAdminLayout()
     {
         self::$layout = 'admin_layout.phtml';

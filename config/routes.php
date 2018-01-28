@@ -12,8 +12,17 @@ return array(
     'logout' => new Route('/logout', 'Security', 'logout'),
     'register' => new Route('/register', 'Security', 'register'),
     'activate_user' => new Route('/activate/{hash}', 'Security', 'activate', array('hash' => '[a-z0-9]{32}')),
-    'cart_list' => new Route('/cart', 'Cart', 'showList'),
-    'cart_add' => new Route('/cart/add/{id}', 'Cart', 'add', array('id' => '[0-9]+')),
+
+
+
+    'registration_default' => new Route('/registration', 'Registration\\Site', 'index'),
+    'registration_books' => new Route('/registration/books', 'Registration\\Book', 'index'),
+    'registration_book_page' => new Route('/registration/book-{id}\.html', 'Registration\\Book', 'show', array('id' => '[0-9]+') ),
+    'favorites_list' => new Route('/registration/favorites', 'Registration\\Favorites', 'showList'),
+    'favorites_book_add' => new Route('/registration/favorites/{id}', 'Registration\\Favorites', 'add', array('id' => '[0-9]+')),
+    'favorites_book_remove' => new Route('/registration/favorites/remove/{id}', 'Registration\\Favorites', 'remove', array('id' => '[0-9]+')),
+    'favorites_book_clear' => new Route('/registration/favorites/clear', 'Registration\\Favorites', 'clear'),
+
 
     // admin routes
     'admin_default' => new Route('/admin', 'Admin\\Default', 'index'),

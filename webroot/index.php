@@ -67,4 +67,4 @@ try{
 }
 
 echo $content;
-//require VIEW_DIR . 'default_layout.phtml';
+
