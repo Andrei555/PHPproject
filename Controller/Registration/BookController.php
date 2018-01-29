@@ -33,4 +33,14 @@ class BookController extends Controller
 
         return $this->render('show.phtml', compact('book'));
     }
+
+    public function searchAction(Request $request)
+    {
+        $repo = $this->container->get('repository_manager')->getRepository('Book');
+        $query = $request->post('query');
+        $reply = $repo->searchBooks($query);
+        $args = ['reply' => $reply];
+
+        return $this->render('search.phtml', $args);
+    }
 }

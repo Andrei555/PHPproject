@@ -97,4 +97,12 @@ class BookModel extends EntityRepository
         $sth = $this->pdo->query($sql);
         return (int)$sth->fetchColumn();
     }
+
+    public function searchBooks($query)
+    {
+        $sth = $this->pdo->prepare("SELECT * FROM book WHERE genre LIKE :search OR title LIKE :search OR author LIKE :search");
+        $sth->bindValue(':search', $query, \PDO::PARAM_INT);
+        $sth->execute();
+        return $result = $sth->fetchAll();
+    }
 }
