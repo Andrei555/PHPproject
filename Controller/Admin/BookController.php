@@ -6,6 +6,7 @@ use Library\Controller;
 use Library\Request;
 use Library\Session;
 use Model\BookForm;
+use Library\File;
 
 class BookController extends Controller
 {
@@ -54,19 +55,27 @@ class BookController extends Controller
 
     public function addAction(Request $request)
     {
+        $fileUpload = new File();
+        $file = $request->files('file');
+        if($fileUpload->uploadFile($file)){
+            Session::setFlash('File successfully saved!');
+        }
+
+
         $form = new BookForm($request);
         $repo = $this->container->get('repository_manager')->getRepository('Book');
 
         if ($request->isPost()){
             if ($form->isValid()) {
+
                 $repo->saveBook(array(
                     'id' => null,
                     'title' => $form->title,
                     'author' => $form->author,
                     'genre' => $form->genre,
                     'description' => $form->description,
+                    'book_contents' => $form->book_contents
                 ));
-
                 Session::setFlash('The book was successfully saved!');
                 $this->container->get('router')->redirect('/admin/add');
             }

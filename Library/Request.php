@@ -13,6 +13,7 @@ class Request
         $this->get = $_GET;
         $this->post = $_POST;
         $this->server = $_SERVER;
+        $this->files = $_FILES;
     }
 
     public function post($key, $default = null)
@@ -30,6 +31,10 @@ class Request
         return isset($this->server[$key]) ? $this->server[$key] : $default;
     }
 
+    public function files($key, $default = null)
+    {
+        return isset($this->files[$key]) ? $this->files[$key] : $default;
+    }
 
     public function isPost()
     {

@@ -39,7 +39,7 @@ class BookModel extends EntityRepository
     public function saveBook(array $book)
     {
         $sth = $this->pdo->prepare('INSERT INTO book VALUES
-                              (:id, :title, :author, :genre, :description)');
+                              (:id, :title, :author, :genre, :description, :book_contents)');
         $sth->execute($book);
     }
 
@@ -105,4 +105,6 @@ class BookModel extends EntityRepository
         $sth->execute();
         return $result = $sth->fetchAll();
     }
+
+
 }

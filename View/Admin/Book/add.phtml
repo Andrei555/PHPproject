@@ -12,24 +12,28 @@
 
     <form method="post">
         <div class="form-group">
-            <label for="exampleFormControlInput1">Book title</label>
-            <input type="text" class="form-control text-danger" id="title" name="title">
+            <input type="text" placeholder="Book title" class="form-control text-danger" id="title" name="title">
         </div>
         <div class="form-group">
-            <label for="exampleFormControlInput1">Book author</label>
-            <input type="text" class="form-control text-danger" id="author" name="author">
+            <input type="text" placeholder="Book author" class="form-control text-danger" id="author" name="author">
         </div>
         <div class="form-group">
-            <label for="exampleFormControlInput1">Book genre</label>
-            <input type="text" class="form-control text-danger" id="genre" name="genre">
+            <input type="text" placeholder="Book genre" class="form-control text-danger" id="genre" name="genre">
         </div>
         <div class="form-group">
-            <label for="exampleFormControlTextarea1">Book description</label>
-            <textarea class="form-control text-danger" id="description" rows="3" name="description"></textarea>
+            <input type="text" placeholder="Book contents" class="form-control text-danger" id="genre" name="book_contents">
+        </div>
+        <div class="form-group">
+            <textarea class="form-control text-danger" placeholder="Book description" id="description" rows="3" name="description"></textarea>
         </div>
         <div class="text-center">
-            <button type="submit" class="btn btn-danger px-5">Submit</button>
+            <button type="submit" class="btn btn-outline-danger px-5">Submit</button>
         </div>
+    </form>
+    <form method="post" enctype="multipart/form-data" class="text-center">
+        <div class="alert text-center h2 text-primary"><b><?=\Library\Session::getFlash()?></b></div>
+        <input type="file" class="form-control mb-3" name="file" id="file">
+        <input type="submit" class="btn btn-danger mb-5" value="Upload"/>
     </form>
 </div>
 
